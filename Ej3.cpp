@@ -1,3 +1,14 @@
+/*
+
+ Implementar una función que intercambie los elementos entre 2 listas de números
+ enteros que recibe como parámetros. Si los tamaños de las listas son distintos,
+ igual debe cambiar los datos y cambiarían los tamaños de cada lista.
+ Ejemplo sea lista1= 15->1->8->35->40->25->12 y lista2= 3->4->912->45->66
+ al ejecutar la función quedarían lista1= 3->4->912->45->66 y
+ lista2=15->1->8->35->40->25->12.
+ */
+
+
 #include <iostream>
 #include "Lista/Lista.h"
 
