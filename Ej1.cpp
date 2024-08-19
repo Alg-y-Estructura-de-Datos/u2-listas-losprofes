@@ -1,9 +1,9 @@
 /*
 Implementar una función llamada “printLista” que reciba una lista y una
- posición “p” eimprima los elementos de esa lista a partir de la posición “p”.
+ posición “p” e imprima los elementos de esa lista a partir de la posición “p”.
  No debe modificarse la lista original.
  Ej: listaOriginal: 1->2->3->4->5->6->7->8->9->10 con p=5 Por pantalla se verá:
-5->6->7->8->9->10
+6->7->8->9->10
  */
 
 #include <iostream>
@@ -24,19 +24,7 @@ void printLista(Lista<int> &lista, int p) {
     }
     cout << "NULL" << endl;
 }
-/*
-void printLista(Lista<int>& lista, int p) {
-    Lista<T> listaAuxiliar;
 
-    // Copiar elementos desde la posición p hasta el final en la lista auxiliar
-    for (int i = p; i < lista.getTamanio(); i++) {
-        listaAuxiliar.insertarUltimo(lista.getDato(i));
-    }
-
-    // Imprimir la lista auxiliar
-    listaAuxiliar.print();
-}
-*/
 
 int main() {
     cout << "Ejercicio 02/01 Listas " << endl;

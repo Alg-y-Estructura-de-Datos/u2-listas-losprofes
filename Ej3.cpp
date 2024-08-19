@@ -44,9 +44,7 @@ void intercambiarListas(Lista<int>& lista1, Lista<int>& lista2) {
 
 int main() {
 
-    cout << "Ejercicio 02/03 Listas " << endl;
 
-    int main() {
         Lista<int> lista1;
         Lista<int> lista2;
 

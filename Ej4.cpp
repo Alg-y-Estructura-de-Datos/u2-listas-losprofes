@@ -8,8 +8,6 @@
 
  */
 
-
-
 #include <iostream>
 #include "Lista/Lista.h"
 #include <cctype>  // Para usar la función tolower
@@ -44,9 +42,17 @@ int main() {
     getline(cin, frase);
 
     // Almacenar cada carácter en la lista
-    for (char c : frase) {
+
+    for (int i = 0; i < frase.length(); ++i) {
+        char c = frase[i];
         lista.insertarUltimo(c);
     }
+
+    //sintaxis sencilla
+    /*
+    for (char c : frase) {
+        lista.insertarUltimo(c);
+    }*/
 
     // Validar que la lista no esté vacía
     if (lista.esVacia()) {

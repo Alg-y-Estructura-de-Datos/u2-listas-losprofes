@@ -7,7 +7,6 @@ Crear un programa que pida al usuario dar elementos a una Lista de números
  usuario que no hay elementos repetidos en L1, de lo contrario imprimir ambas listas.
  */
 
-
 #include <iostream>
 #include "Lista/Lista.h"
 #include <limits>
@@ -18,30 +17,34 @@ using namespace std;
 Lista<int> encontrarRepetidos(Lista<int>& L1) {
     Lista<int> L2;
     Lista<int> yaVistos;
+    Lista<int> repetidos;
 
     for (int i = 0; i < L1.getTamanio(); i++) {
         int valor = L1.getDato(i);
-        bool encontrado = false;
+        bool yaVisto = false;
+        bool esRepetido = false;
 
         // Verificar si el valor ya ha sido visto
         for (int j = 0; j < yaVistos.getTamanio(); j++) {
             if (yaVistos.getDato(j) == valor) {
-                encontrado = true;
+                yaVisto = true;
                 break;
             }
         }
 
-        // Si el valor ha sido visto y ya está en L2, lo ignoramos
-        if (encontrado) {
-            bool enL2 = false;
-            for (int j = 0; j < L2.getTamanio(); j++) {
-                if (L2.getDato(j) == valor) {
-                    enL2 = true;
+        // Si el valor ya ha sido visto, se marca como repetido
+        if (yaVisto) {
+            for (int j = 0; j < repetidos.getTamanio(); j++) {
+                if (repetidos.getDato(j) == valor) {
+                    esRepetido = true;
                     break;
                 }
             }
-            if (!enL2) {
+
+            // Si es repetido y no está en L2, agregarlo a L2
+            if (!esRepetido) {
                 L2.insertarUltimo(valor);
+                repetidos.insertarUltimo(valor);
             }
         } else {
             // Si el valor no ha sido visto antes, lo agregamos a la lista de vistos
@@ -63,7 +66,7 @@ int main() {
     cout << "Ingrese numeros enteros para la lista (ingrese 'q' para terminar):" << endl;
     while (true) {
         cout << "Numero: ";
-        if (std::cin >> num) {
+        if (cin >> num) {
             L1.insertarUltimo(num);
         } else {
             cin.clear(); // Limpiar el estado de error del stream

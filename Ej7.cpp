@@ -26,7 +26,7 @@ métodos getDato(int pos) y remover(int pos) para encontrar y
 eliminar al estudiante de la lista.
 
 5. Contar Estudiantes:
- 
+
 ○ Usa el método getTamanio() para contar el número de estudiantes en la lista
 y muestra el resultado
  */
