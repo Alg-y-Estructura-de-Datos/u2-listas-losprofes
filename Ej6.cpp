@@ -1,6 +1,6 @@
 /*
 
- Utilizando esta estructura, crea un programa que gestione una lista circular
+ Crea un programa que gestione una lista circular
  de contactos. Cada contacto contiene un nombre (cadena de caracteres)
  y un número de teléfono (cadena de caracteres).
 
@@ -45,12 +45,13 @@ public:
     string nombre;
     string telefono;
 
+    /*Constructores*/
     Contacto() : nombre(""), telefono("") {}
     Contacto(const string &n, const string &t) : nombre(n), telefono(t) {}
 
     // Sobrecarga del operador <<
     friend ostream& operator<<(ostream &os, const Contacto &c) {
-        os << "Nombre: " << c.nombre << ", Teléfono: " << c.telefono;
+        os << "Nombre: " << c.nombre << ", Telefono: " << c.telefono;
         return os;
     }
 
@@ -111,22 +112,34 @@ int main() {
     cout << "Lista de contactos:" << endl;
     mostrarContactos(lista);
 
-    // Buscar contacto
-    string nombreABuscar = "Charlie";
+
+    // Buscar contacto existente
+    string nombreABuscar = "Eve";
     cout << "Buscando contacto con nombre " << nombreABuscar << ":" << endl;
     buscarContacto(lista, nombreABuscar);
 
-    // Eliminar contacto
+    // Buscar contacto no existente
+    nombreABuscar = "Alejandro";
+    cout << "Buscando contacto con nombre " << nombreABuscar << ":" << endl;
+    buscarContacto(lista, nombreABuscar);
+
+
+    // Eliminar contacto existente
     string nombreAEliminar = "Bob";
     cout << "Eliminando contacto con nombre " << nombreAEliminar << ":" << endl;
     eliminarContacto(lista, nombreAEliminar);
 
+    // Eliminar contacto no existente
+    nombreAEliminar = "Matias";
+    cout << "Eliminando contacto con nombre " << nombreAEliminar << ":" << endl;
+    eliminarContacto(lista, nombreAEliminar);
+
     // Mostrar contactos después de eliminar
-    cout << "Lista de contactos después de la eliminación:" << endl;
+    cout << "Lista de contactos despues de la eliminacion:" << endl;
     mostrarContactos(lista);
 
     // Contar contactos
-    cout << "Número de contactos en la lista: " << lista.getTamanio() << endl;
+    cout << "Numero de contactos en la lista: " << lista.getTamanio() << endl;
 
     return 0;
 }

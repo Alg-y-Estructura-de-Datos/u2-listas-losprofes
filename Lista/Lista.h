@@ -146,7 +146,8 @@ template <class T> void Lista<T>::insertarUltimo(T dato) {
 }
 
 /**
- * Elimina el nodo en la posicion 'pos' de la lista enlasada
+ * Elimina el nodo en la posicion 'pos' de la lista enlasada, reenlazando los nodos
+ * adecuadamente.
  * @tparam T
  * @param pos posicion del nodo a eliminar
  */

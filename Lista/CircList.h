@@ -81,53 +81,46 @@ int CircList<T>::getTamanio()
     tam++;
     return tam;
 }
-
 template <class T>
 void CircList<T>::insertar(int pos, T dato)
 {
+    if (pos < 0) {
+        throw std::out_of_range("Posición negativa no válida");
+    }
 
-    if (pos != 0 && esVacia())
-    {
-        throw 400;
+    if (pos != 0 && esVacia()) {
+        throw 400;  // No se puede insertar en una posición diferente a 0 si la lista está vacía
     }
 
     Nodo<T> *nuevo = new Nodo<T>();
     nuevo->setDato(dato);
-    Nodo<T> *aux = inicio;
-    int posActual = 0;
 
-    if (pos == 0)
-    {
-
-        if (esVacia())
-        {
+    if (pos == 0) {
+        if (esVacia()) {
             nuevo->setSiguiente(nuevo);
-        }
-        else
-        {
-
-            while (aux->getSiguiente() != inicio)
-            {
+            inicio = nuevo;
+        } else {
+            Nodo<T> *aux = inicio;
+            while (aux->getSiguiente() != inicio) {
                 aux = aux->getSiguiente();
             }
-
             nuevo->setSiguiente(inicio);
             aux->setSiguiente(nuevo);
+            inicio = nuevo;  // El nuevo nodo se convierte en el inicio
         }
-
-        inicio = nuevo;
         return;
     }
 
-    while (aux->getSiguiente() != inicio && posActual < pos - 1)
-    {
+    Nodo<T> *aux = inicio;
+    int posActual = 0;
+
+    while (aux->getSiguiente() != inicio && posActual < pos - 1) {
         aux = aux->getSiguiente();
         posActual++;
     }
 
-    if (aux->getSiguiente() == inicio && posActual < pos - 1)
-    {
-        throw 404;
+    if (posActual < pos - 1) {
+        throw std::out_of_range("Posición fuera del rango de la lista");
     }
 
     nuevo->setSiguiente(aux->getSiguiente());
@@ -139,12 +132,10 @@ void CircList<T>::insertarPrimero(T dato)
 {
     insertar(0, dato);
 }
-
 template <class T>
 void CircList<T>::insertarUltimo(T dato)
 {
-    Nodo<T> *aux = inicio, *nuevo;
-    nuevo = new Nodo<T>;
+    Nodo<T> *nuevo = new Nodo<T>;
     nuevo->setDato(dato);
 
     if (esVacia())
@@ -154,34 +145,36 @@ void CircList<T>::insertarUltimo(T dato)
         return;
     }
 
+    Nodo<T> *aux = inicio;
     while (aux->getSiguiente() != inicio)
     {
         aux = aux->getSiguiente();
     }
 
-    nuevo->setSiguiente(aux->getSiguiente());
+    nuevo->setSiguiente(inicio); // Simplificación del código
     aux->setSiguiente(nuevo);
 }
 
 template <class T>
-T CircList<T>::getDato(int pos)
-{
+T CircList<T>::getDato(int pos) {
+    if (pos < 0 || esVacia()) {
+        throw 404;  // Posición inválida
+    }
+
     Nodo<T> *aux = inicio;
     int posActual = 0;
 
-    while (aux->getSiguiente() != inicio && posActual < pos)
-    {
+    do {
+        if (posActual == pos) {
+            return aux->getDato();
+        }
         aux = aux->getSiguiente();
         posActual++;
-    }
+    } while (aux != inicio);
 
-    if (aux->getSiguiente() == inicio)
-    {
-        throw 404;
-    }
-
-    return aux->getDato();
+    throw 404;  // Posición fuera del rango de la lista
 }
+
 
 template <class T>
 void CircList<T>::imprimir()
@@ -200,7 +193,6 @@ void CircList<T>::imprimir()
 
     std::cout << "..." << std::endl;
 }
-
 template <class T>
 void CircList<T>::eliminarPorValor(const T& valor) {
     if (esVacia()) {
@@ -209,35 +201,40 @@ void CircList<T>::eliminarPorValor(const T& valor) {
 
     Nodo<T> *actual = inicio;
     Nodo<T> *previo = nullptr;
+    Nodo<T> *ultimo = inicio;
+
+    // Encontrar el último nodo
+    while (ultimo->getSiguiente() != inicio) {
+        ultimo = ultimo->getSiguiente();
+    }
 
     do {
         if (actual->getDato() == valor) {
-            if (previo) {
-                previo->setSiguiente(actual->getSiguiente());
-                if (actual == inicio) {
-                    inicio = actual->getSiguiente();
-                }
-                delete actual;
-                return;
-            } else {
-                Nodo<T> *ultimo = inicio;
-                while (ultimo->getSiguiente() != inicio) {
-                    ultimo = ultimo->getSiguiente();
-                }
-                if (inicio == inicio->getSiguiente()) {
+            if (actual == inicio) {
+                // Caso especial cuando se elimina el primer nodo
+                if (inicio == inicio->getSiguiente()) { // Un solo nodo en la lista
                     delete inicio;
                     inicio = nullptr;
-                } else {
+                    return;
+                } else { // Más de un nodo
                     ultimo->setSiguiente(inicio->getSiguiente());
-                    delete inicio;
-                    inicio = ultimo->getSiguiente();
+                    Nodo<T>* temp = inicio;
+                    inicio = inicio->getSiguiente();
+                    delete temp;
+                    actual = inicio; // Continuar con el siguiente nodo
                 }
+            } else {
+                // Nodo en cualquier otra posición
+                previo->setSiguiente(actual->getSiguiente());
+                delete actual;
                 return;
             }
+        } else {
+            previo = actual;
+            actual = actual->getSiguiente();
         }
-        previo = actual;
-        actual = actual->getSiguiente();
     } while (actual != inicio);
 }
+
 
 #endif // U02_LISTAS_LISTA_CIRCLIST_H_

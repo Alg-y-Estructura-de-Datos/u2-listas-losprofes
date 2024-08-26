@@ -11,9 +11,10 @@ Implementar una función llamada “printLista” que reciba una lista y una
 
 using namespace std;
 
-void printLista(Lista<int> &lista, int p) {
-    int tamanio = lista.getTamanio();
+void printLista(Lista<int>& lista, int p) {
+    int tamanio = lista.getTamanio();//AVERIGUO EL TAMAÑO DE LA LISTA
 
+    //CONTROL
     if (p >= tamanio || p < 0) {
         cout << "La posición " << p << " está fuera de los límites de la lista." << endl;
         return;
@@ -29,22 +30,22 @@ void printLista(Lista<int> &lista, int p) {
 int main() {
     cout << "Ejercicio 02/01 Listas " << endl;
 
-    Lista<int> Lista;
+    Lista<int> Lista1;
     int n, d, p;
 
-    cout<<"Ingrese el tamaño de la Lista: ";
+    cout<<"Ingrese el tamaño de la Lista1: ";
     cin>>n;
 
     for (int i = 0; i < n; i++) {
         cout<<"Ingrese el valor de la lista en la posicion: "<<i<<endl;
         cin>>d;
-        Lista.insertarUltimo(d);
+        Lista1.insertarUltimo(d);
     }
 
-    cout<<"Ingrese la posicion desde donde desea imprimir la Lista: "<<endl;
+    cout<<"Ingrese la posicion desde donde desea imprimir la Lista1: "<<endl;
     cin>>p;
 
-    printLista(Lista, p);
+    printLista(Lista1, p);
 
     return 0;
 }

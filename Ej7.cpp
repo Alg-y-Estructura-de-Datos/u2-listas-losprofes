@@ -63,7 +63,7 @@ void agregarEstudiantes(ListaDoble<Estudiante>& lista) {
     lista.insertarUltimo(Estudiante("Juan", 20));
     lista.insertarUltimo(Estudiante("Ana", 22));
     lista.insertarUltimo(Estudiante("Luis", 19));
-    lista.insertarUltimo(Estudiante("María", 21));
+    lista.insertarUltimo(Estudiante("Maria", 21));
     lista.insertarUltimo(Estudiante("Pedro", 23));
 }
 
@@ -91,6 +91,7 @@ void eliminarEstudiantePorNombre(ListaDoble<Estudiante>& lista, const string& no
     for (int i = 0; i < tamanio; ++i) {
         Estudiante est = lista.getDato(i);
         if (est.getNombre() == nombre) {
+            cout << "Estudiante " << nombre << " eliminado exitosamente" << endl;
             lista.remover(i);
             return; // Eliminar el estudiante y salir
         }
@@ -100,12 +101,12 @@ void eliminarEstudiantePorNombre(ListaDoble<Estudiante>& lista, const string& no
 
 // Contar Estudiantes
 void contarEstudiantes(const ListaDoble<Estudiante>& lista) {
-    cout << "Número de estudiantes: " << lista.getTamanio() << endl;
+    cout << "Numero de estudiantes: " << lista.getTamanio() << endl;
 }
 
 int main() {
 
-    cout << "Ejercicio 02/07 Listas " << endl;
+    cout << "Ejercicio 07/09 Listas " << endl;
 
     ListaDoble<Estudiante> listaEstudiantes;
 

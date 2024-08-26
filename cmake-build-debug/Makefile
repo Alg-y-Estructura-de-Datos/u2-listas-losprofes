@@ -206,6 +206,32 @@ Ej7/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Ej7.dir\build.make CMakeFiles/Ej7.dir/build
 .PHONY : Ej7/fast
 
+#=============================================================================
+# Target rules for targets named Ej8
+
+# Build rule for target.
+Ej8: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Ej8
+.PHONY : Ej8
+
+# fast build rule for target.
+Ej8/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Ej8.dir\build.make CMakeFiles/Ej8.dir/build
+.PHONY : Ej8/fast
+
+#=============================================================================
+# Target rules for targets named Ej9
+
+# Build rule for target.
+Ej9: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Ej9
+.PHONY : Ej9
+
+# fast build rule for target.
+Ej9/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Ej9.dir\build.make CMakeFiles/Ej9.dir/build
+.PHONY : Ej9/fast
+
 Ej1.obj: Ej1.cpp.obj
 .PHONY : Ej1.obj
 
@@ -374,6 +400,54 @@ Ej7.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Ej7.dir\build.make CMakeFiles/Ej7.dir/Ej7.cpp.s
 .PHONY : Ej7.cpp.s
 
+Ej8.obj: Ej8.cpp.obj
+.PHONY : Ej8.obj
+
+# target to build an object file
+Ej8.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Ej8.dir\build.make CMakeFiles/Ej8.dir/Ej8.cpp.obj
+.PHONY : Ej8.cpp.obj
+
+Ej8.i: Ej8.cpp.i
+.PHONY : Ej8.i
+
+# target to preprocess a source file
+Ej8.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Ej8.dir\build.make CMakeFiles/Ej8.dir/Ej8.cpp.i
+.PHONY : Ej8.cpp.i
+
+Ej8.s: Ej8.cpp.s
+.PHONY : Ej8.s
+
+# target to generate assembly for a file
+Ej8.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Ej8.dir\build.make CMakeFiles/Ej8.dir/Ej8.cpp.s
+.PHONY : Ej8.cpp.s
+
+Ej9.obj: Ej9.cpp.obj
+.PHONY : Ej9.obj
+
+# target to build an object file
+Ej9.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Ej9.dir\build.make CMakeFiles/Ej9.dir/Ej9.cpp.obj
+.PHONY : Ej9.cpp.obj
+
+Ej9.i: Ej9.cpp.i
+.PHONY : Ej9.i
+
+# target to preprocess a source file
+Ej9.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Ej9.dir\build.make CMakeFiles/Ej9.dir/Ej9.cpp.i
+.PHONY : Ej9.cpp.i
+
+Ej9.s: Ej9.cpp.s
+.PHONY : Ej9.s
+
+# target to generate assembly for a file
+Ej9.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Ej9.dir\build.make CMakeFiles/Ej9.dir/Ej9.cpp.s
+.PHONY : Ej9.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -389,6 +463,8 @@ help:
 	@echo ... Ej5
 	@echo ... Ej6
 	@echo ... Ej7
+	@echo ... Ej8
+	@echo ... Ej9
 	@echo ... Ej1.obj
 	@echo ... Ej1.i
 	@echo ... Ej1.s
@@ -410,6 +486,12 @@ help:
 	@echo ... Ej7.obj
 	@echo ... Ej7.i
 	@echo ... Ej7.s
+	@echo ... Ej8.obj
+	@echo ... Ej8.i
+	@echo ... Ej8.s
+	@echo ... Ej9.obj
+	@echo ... Ej9.i
+	@echo ... Ej9.s
 .PHONY : help
 
 

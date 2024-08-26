@@ -5,5 +5,7 @@ C:/Users/lover/Desktop/UCC/Prog 3/2024/u2-listas-losprofes/cmake-build-debug/CMa
 C:/Users/lover/Desktop/UCC/Prog 3/2024/u2-listas-losprofes/cmake-build-debug/CMakeFiles/Ej5.dir
 C:/Users/lover/Desktop/UCC/Prog 3/2024/u2-listas-losprofes/cmake-build-debug/CMakeFiles/Ej6.dir
 C:/Users/lover/Desktop/UCC/Prog 3/2024/u2-listas-losprofes/cmake-build-debug/CMakeFiles/Ej7.dir
+C:/Users/lover/Desktop/UCC/Prog 3/2024/u2-listas-losprofes/cmake-build-debug/CMakeFiles/Ej8.dir
+C:/Users/lover/Desktop/UCC/Prog 3/2024/u2-listas-losprofes/cmake-build-debug/CMakeFiles/Ej9.dir
 C:/Users/lover/Desktop/UCC/Prog 3/2024/u2-listas-losprofes/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/lover/Desktop/UCC/Prog 3/2024/u2-listas-losprofes/cmake-build-debug/CMakeFiles/rebuild_cache.dir

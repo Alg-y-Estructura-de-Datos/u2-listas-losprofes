@@ -46,6 +46,7 @@ int main() {
     for (int i = 0; i < frase.length(); ++i) {
         char c = frase[i];
         lista.insertarUltimo(c);
+       // lista.insertarUltimo(frase[i]);
     }
 
     //sintaxis sencilla
