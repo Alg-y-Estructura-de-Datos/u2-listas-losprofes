@@ -21,7 +21,7 @@ void mostrarFrasesCircular(CircList<T>& lista) {
         pos = (pos + 1) % lista.getTamanio(); // Avanzar a la siguiente posición, circularmente
 
         // Introducir un retraso de 1 segundo
-        this_thread::sleep_for(chrono::seconds(3)); // Retraso de 1 segundo
+        this_thread::sleep_for(chrono::seconds(3)); // Retraso de 3 segundo
     }
 }
 

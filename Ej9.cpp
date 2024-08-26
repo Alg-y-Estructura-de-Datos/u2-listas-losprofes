@@ -70,7 +70,12 @@ void anadirPagina(ListaDoble<string>& historial, int& posicionActual) {
         posicionActual = 0;
     } else {
         // Actualiza la posición actual a la última página añadida
-        posicionActual = historial.getTamanio() - 1;
+        if( posicionActual != (historial.getTamanio() - 2)){
+
+        }else{
+            posicionActual = historial.getTamanio() - 1;
+        }
+
     }
 }
 
