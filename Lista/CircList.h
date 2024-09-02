@@ -29,6 +29,8 @@ public:
 
     void eliminarPorValor(const T& valor);
 
+    void remover(int pos);
+
     void imprimir();
 };
 
@@ -193,6 +195,61 @@ void CircList<T>::imprimir()
 
     std::cout << "..." << std::endl;
 }
+
+
+/**
+ * Elimina el nodo en la posicion 'pos' de la lista enlasada, reenlazando los nodos
+ * adecuadamente.
+ * @tparam T
+ * @param pos posicion del nodo a eliminar
+ */
+template <class T> void CircList<T>::remover(int pos) {
+    if (inicio == nullptr) {  // Verificar si la lista está vacía
+        throw 404;
+    }
+
+    Nodo<T> *aux = inicio, *aBorrar;
+    int posActual = 0;
+
+    if (pos == 0) {
+        // Si hay solo un nodo en la lista
+        if (inicio->getSiguiente() == inicio) {
+            delete inicio;
+            inicio = nullptr;
+            return;
+        }
+
+        // Buscar el último nodo para actualizar su puntero
+        while (aux->getSiguiente() != inicio) {
+            aux = aux->getSiguiente();
+        }
+
+        aux->setSiguiente(inicio->getSiguiente());  // Conectar el último nodo al nuevo inicio
+        aBorrar = inicio;
+        inicio = inicio->getSiguiente();  // Actualizar el inicio al siguiente nodo
+        delete aBorrar;
+        return;
+    }
+
+    // Búsqueda del nodo anterior al que se desea eliminar
+    while (aux->getSiguiente() != inicio && posActual < pos - 1) {
+        aux = aux->getSiguiente();
+        posActual++;
+    }
+
+    if (posActual < pos - 1 || aux->getSiguiente() == inicio) {  // Si la posición no es válida
+        throw 404;
+    }
+
+    aBorrar = aux->getSiguiente();
+    aux->setSiguiente(aBorrar->getSiguiente());
+
+    delete aBorrar;
+}
+
+
+
+
 template <class T>
 void CircList<T>::eliminarPorValor(const T& valor) {
     if (esVacia()) {
